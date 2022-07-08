@@ -1,0 +1,20 @@
+version: "3.8"
+
+volumes:
+    hidden-service:
+
+networks:
+    web:
+
+services:
+    tor:
+        image: octopus/tor
+        container_name: tor
+        environment:
+            TOR_HOST: 172.20.0.3:80
+        volumes:
+            - hidden-service:/var/lib/tor/hidden_service
+        networks:
+            - default
+            - web
+        restart: on-failure
