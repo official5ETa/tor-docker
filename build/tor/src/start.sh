@@ -1,7 +1,12 @@
 #!/bin/bash
 
-cp -vf /etc/tor/torrc_template /etc/tor/torrc
+cp -f /etc/tor/torrc_template /etc/tor/torrc
 sed -i "s/<TOR_HOST>/$TOR_HOST/" /etc/tor/torrc
 
+chown -R debian-tor: /var/lib/tor/hidden_service/
+chmod 700 /var/lib/tor/hidden_service/
+
 service tor start
-tor
+su - debian-tor -c "tor"
+
+sleep infinity

@@ -27,5 +27,4 @@ RUN mkdir -vp /run/tor              \
  && chmod -v  a+w                   \
         /etc/tor
 
-USER debian-tor
 ENTRYPOINT ["./start.sh"]
