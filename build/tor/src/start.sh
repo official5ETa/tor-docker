@@ -9,4 +9,7 @@ chmod 700 /var/lib/tor/hidden_service/
 service tor start
 su - debian-tor -c "tor"
 
+echo ""
+tor-hostname
+
 sleep infinity
